@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "emotion": "^9.2.5",
+    "flexboxgrid": "^6.3.1",
     "humps": "^2.0.1",
     "jss": "^9.8.7",
     "jss-camel-case": "^6.1.0",
@@ -28,5 +30,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "flow-bin": "^0.76.0"
   }
 }
