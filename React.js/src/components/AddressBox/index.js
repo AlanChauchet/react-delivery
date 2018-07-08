@@ -20,18 +20,33 @@ import PickUpBadgePresent from '../../assets/pickUpBadgePresent.svg';
 
 type Props = {
   classes: any,
+  pickUpState: 'blank' | 'error' | 'present',
+  dropOffState: 'blank' | 'error' | 'present',
 } & FormProps;
 
 class AddressBox extends PureComponent<Props> {
+  icons = {
+    pickUp: {
+      blank: PickUpBadgeBlank,
+      error: PickUpBadgeError,
+      present: PickUpBadgePresent,
+    },
+    dropOff: {
+      blank: DropOffBadgeBlank,
+      error: DropOffBadgeError,
+      present: DropOffBadgePresent,
+    },
+  };
+
   render() {
-    const { classes, handleSubmit, submitting, invalid } = this.props;
+    const { classes, pickUpState, dropOffState, handleSubmit, submitting, disabled } = this.props;
 
     return (
       <Card className={classes.root}>
         <div className={classes.inputContainer}>
           <img
-            src={DropOffBadgeBlank}
-            alt="Drop off"
+            src={this.icons.pickUp[pickUpState]}
+            alt="Pick up"
             className={classes.inputIcon}
           />
           <Field
@@ -42,8 +57,8 @@ class AddressBox extends PureComponent<Props> {
         </div>
         <div className={classes.inputContainer}>
           <img
-            src={PickUpBadgeBlank}
-            alt="Pick up"
+            src={this.icons.dropOff[dropOffState]}
+            alt="Drop off"
             className={classes.inputIcon}
           />
           <Field
@@ -53,7 +68,7 @@ class AddressBox extends PureComponent<Props> {
           />
         </div>
         <div className={classes.submitContainer}>
-          <Button onClick={handleSubmit} disabled={invalid || submitting}>
+          <Button onClick={handleSubmit} disabled={disabled || submitting}>
             {submitting ? 'Creating...' : 'Create job'}
           </Button>
         </div>

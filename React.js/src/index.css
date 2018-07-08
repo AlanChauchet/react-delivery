@@ -1,0 +1,14 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.Toastify__toast-container--top-right {
+    top: 32px;
+    right: 32px;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}

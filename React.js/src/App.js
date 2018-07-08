@@ -7,10 +7,11 @@ import expand from 'jss-expand';
 import nested from 'jss-nested';
 import vendorPrefixer from 'jss-vendor-prefixer';
 import { Provider } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 
 import configureStore from './store';
 import theme from './theme';
-import AddressBox from './components/AddressBox';
+import DeliveryCreate from './pages/DeliveryCreate';
 
 const { store } = configureStore();
 
@@ -29,10 +30,13 @@ class App extends Component {
       <Provider store={store}>
         <JssProvider jss={jss}>
           <ThemeProvider theme={theme}>
-            <div className="row">
-              <div className="col-xs-12 col-sm-6 col-md-3">
-                <AddressBox form="delivery" onSubmit={() => console.log('submit')} />
-              </div>
+            <div>
+              <DeliveryCreate/>
+              <ToastContainer
+                autoClose={5000}
+                closeButton={false}
+                hideProgressBar
+              />
             </div>
           </ThemeProvider>
         </JssProvider>
