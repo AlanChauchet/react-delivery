@@ -34,7 +34,7 @@ class DeliveryCreate extends PureComponent<Props> {
       dispatch(DeliveryCreators.fetchLocation(dropOffAddress, 'dropOff'))
         .catch(() => 1);
     }
-  }, 1000);
+  }, 300);
 
   submit = ({ pickUpAddress, dropOffAddress }) => {
     const { classes } = this.props;
